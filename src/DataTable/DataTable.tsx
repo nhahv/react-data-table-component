@@ -156,7 +156,7 @@ function DataTable<T>(props: TableProps<T>): JSX.Element {
 
 	const { persistSelectedOnSort = false, persistSelectedOnPageChange = false } = paginationServerOptions;
 	const mergeSelections = !!(paginationServer && (persistSelectedOnPageChange || persistSelectedOnSort));
-	const enabledPagination = pagination && !progressPending && data.length > 0;
+	const enabledPagination = pagination && data.length > 0;
 	const Pagination = paginationComponent || NativePagination;
 
 	const currentTheme = React.useMemo(() => createStyles(customStyles, theme), [customStyles, theme]);
@@ -414,10 +414,11 @@ function DataTable<T>(props: TableProps<T>): JSX.Element {
 
 						{!sortedData.length && !progressPending && <NoData>{noDataComponent}</NoData>}
 
-						{progressPending && persistTableHead && <ProgressWrapper>{progressComponent}</ProgressWrapper>}
+						{/* {progressPending && persistTableHead && <ProgressWrapper>{progressComponent}</ProgressWrapper>} */}
 
-						{!progressPending && sortedData.length > 0 && (
+						{sortedData.length > 0 && (
 							<Body className="rdt_TableBody" role="rowgroup">
+								{progressPending && persistTableHead && <ProgressWrapper>{progressComponent}</ProgressWrapper>}
 								{tableRows.map((row, i) => {
 									const key = prop(row as TableRow, keyField) as string | number;
 									const id = isEmpty(key) ? i : key;

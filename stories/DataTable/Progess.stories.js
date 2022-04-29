@@ -21,17 +21,30 @@ const columns = [
 ];
 
 export const Basic = () => {
-	const [pending, setPending] = React.useState(true);
-	const [rows, setRows] = React.useState([]);
-	React.useEffect(() => {
-		const timeout = setTimeout(() => {
-			setRows(data);
-			setPending(false);
-		}, 2000);
-		return () => clearTimeout(timeout);
-	}, []);
+	const [pending, setPending] = React.useState(false);
+	const [rows, setRows] = React.useState(data);
 
-	return <DataTable title="Movie List" columns={columns} data={rows} progressPending={pending} pagination />;
+	// React.useEffect(() => {
+	// 	const timeout = setTimeout(() => {
+	// 		setRows(data);
+	// 		setPending(false);
+	// 	}, 20000);
+	// 	return () => clearTimeout(timeout);
+	// }, []);
+
+	return (
+		<>
+			<button onClick={() => setPending(!pending)}>Loading...</button>
+			<DataTable
+				title="Movie List"
+				persistTableHead
+				columns={columns}
+				data={rows}
+				progressPending={pending}
+				pagination
+			/>
+		</>
+	);
 };
 
 export default {

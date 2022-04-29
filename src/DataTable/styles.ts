@@ -214,7 +214,8 @@ export const defaultStyles = (theme: Theme): TableStyles => ({
 			alignItems: 'center',
 			justifyContent: 'center',
 			color: theme.text.primary,
-			backgroundColor: theme.background.default,
+			backgroundColor: 'rgba(255, 255, 255, 0.7)',
+			zIndex: 1,
 		},
 	},
 });

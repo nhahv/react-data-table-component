@@ -44,7 +44,7 @@ export const defaultProps = {
 	},
 	expandableRowsComponentProps: {},
 	progressPending: false,
-	progressComponent: <div style={{ fontSize: '24px', fontWeight: 700, padding: '24px' }}>Loading...</div>,
+	progressComponent: <div style={{ fontSize: '24px', fontWeight: 700, padding: '24px' }}>Đang tải...</div>,
 	persistTableHead: false,
 	sortIcon: null,
 	sortFunction: null,
