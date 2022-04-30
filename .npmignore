@@ -13,3 +13,4 @@ rollup.config.*.js
 test-config.js
 yarn.lock
 *.log
+.npmrc

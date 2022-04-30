@@ -71,3 +71,4 @@ package-lock.json
 
 # visualizer
 stats.html
+.npmrc
